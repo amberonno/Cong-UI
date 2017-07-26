@@ -1,6 +1,8 @@
+import 'gfs-icons/iconfont.less';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
+import { darken } from 'polished';
 import * as colors from '../styles/colors';
 
 const SCButton = styled.button`
@@ -19,11 +21,11 @@ const SCButton = styled.button`
   text-transform: uppercase;
   transition: all 300ms ease;
   &:hover {
-    background: ${({ hoverColor }) => colors[hoverColor]};
+    background: ${({ bgColor }) => darken(0.1, colors[bgColor])};};
   }
 `;
 /**
- * The only true button.
+ * Button组件
  */
 export default function Button(props) {
   return (
@@ -38,7 +40,6 @@ Button.propTypes = {
   /** The color for the button */
   bgColor: PropTypes.string,
   fontColor: PropTypes.string,
-  hoverColor: PropTypes.string,
   /** The size of the button */
   size: PropTypes.oneOf(['small', 'normal', 'large']),
   /** Gets called when the user clicks on the button */
@@ -47,7 +48,6 @@ Button.propTypes = {
 Button.defaultProps = {
   bgColor: 'blue',
   fontColor: 'white',
-  hoverColor: 'darkBlue',
   /* eslint-disable no-console */
   onClick: (event) => {
     console.log('You have clicked me!', event.target);
