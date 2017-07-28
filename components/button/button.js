@@ -12,8 +12,8 @@ export default function Button(props) {
   );
 }
 Button.propTypes = {
-  /** 设置按钮类型，可选值为 primary warning danger success info */
-  type: PropTypes.oneOf(['primary', 'warning', 'danger', 'success', 'info']).isRequired,
+  /** 设置按钮类型，可选值为 primary danger success */
+  type: PropTypes.oneOf(['primary', 'danger', 'success']).isRequired,
   /** 设置 button 原生的 type 值 */
   htmlType: PropTypes.string,
   /** 设置按钮的图标类型 */

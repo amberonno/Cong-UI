@@ -2,5 +2,18 @@
 @import './mixin.less';
 @btn-pre-cls: ~'@{selector-prefix}-btn';
 .@{btn-pre-cls} {
-    .button-size(40px, 8px, 14px, 3px)
+  .btn;
+  &-danger {
+    .btn-danger;
+  }  
+  &-primary {
+    .btn-primary;
+  }  
+ &-success {
+    .btn-success;
+  }  
+}
+
+button{
+    margin:10px;
 }

@@ -1,7 +1,51 @@
-.button-size(@height; @padding; @font-size; @border-radius) {
-  padding:0 @padding;
+.button-size(@height; @padding; @font-size; @border-radius; @border-width) {
+  padding: @padding;
   font-size: @font-size;
   border-radius: @border-radius;
   height: @height;
-  line-height: @height;
+  line-height: @height - (2 * @border-width);
+}
+.button-color(@color; @background; @border) {
+  color: @color;
+  background-color: @background;
+  border-color: @border;
+}
+
+
+.button-type(@color; @background; @border) {
+  .button-color(@color; @background; @border);
+}
+.btn() {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: @btn-font-weight;
+  text-align: center;
+  cursor: pointer;
+  background-image: none;
+  border: @border-width-base @border-style-base transparent;
+  white-space: nowrap;
+  .button-size(@btn-height-base; @btn-padding-base; @btn-font-size-base; @btn-border-radius-base; @border-width-base);
+  .button-color(@btn-default-color; @btn-default-bg; @btn-default-border );
+  user-select: none;
+  position: relative;
+  &,
+  &:active,
+  &:focus {
+    outline: 0;
+  }
+  &-lg {
+    .button-size(@btn-height-lg; @btn-padding-lg; @btn-font-size-lg; @btn-border-radius-base; @border-width-base);
+  }
+  &-sm {
+    .button-size(@btn-height-sm; @btn-padding-sm; @btn-font-size-sm; @btn-border-radius-sm; @border-width-base);
+  }
+}
+.btn-danger() {
+  .button-type(@btn-danger-color, @btn-danger-bg, @btn-danger-border);
+}
+.btn-primary() {
+  .button-type(@btn-primary-color, @btn-primary-bg, @btn-primary-border);
+}
+.btn-success() {
+  .button-type(@btn-success-color, @btn-success-bg, @btn-success-border);
 }
