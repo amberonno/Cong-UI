@@ -11,7 +11,6 @@ module.exports = {
             },
             {
                 test: /\.less?$/,
-                exclude:/components/,
                 loaders: ["style-loader","css-loader","less-loader"]
             },
             {

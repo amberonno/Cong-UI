@@ -1,61 +1,41 @@
-import 'gfs-icons/iconfont.less';
 import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
-import { darken } from 'polished';
-import * as colors from '../styles/colors';
-
-const SCButton = styled.button`
-  background: ${({ bgColor }) => colors[bgColor]};
-  border: none;
-  border-radius: 2px;
-  color: ${({ fontColor }) => colors[fontColor]};
-  cursor: pointer;
-  display: inline-block;
-  font-size: 16px;
-  line-height: 40px;
-  font-weight: 200;
-  margin: 8px 0;
-  outline: none;
-  padding: 0 12px;
-  text-transform: uppercase;
-  transition: all 300ms ease;
-  &:hover {
-    background: ${({ bgColor }) => darken(0.1, colors[bgColor])};};
-  }
-`;
+import './style/index.less';
 /**
  * Button组件
  */
 export default function Button(props) {
   return (
-    <SCButton {...props}>
+    <button className='disabled eg-btn' {...props}>
       {props.children}
-    </SCButton>
+    </button>
   );
 }
 Button.propTypes = {
-  /** Button label */
-  children: PropTypes.string.isRequired,
-  /** The color for the button */
-  bgColor: PropTypes.string,
-  fontColor: PropTypes.string,
-  /** The size of the button */
+  /** 设置按钮类型，可选值为 primary warning danger success info */
+  type: PropTypes.oneOf(['primary', 'warning', 'danger', 'success', 'info']).isRequired,
+  /** 设置 button 原生的 type 值 */
+  htmlType: PropTypes.string,
+  /** 设置按钮的图标类型 */
+  icon: PropTypes.string,
+  /** 设置按钮大小 */
   size: PropTypes.oneOf(['small', 'normal', 'large']),
-  /** Gets called when the user clicks on the button */
+  /** 是否为圆形按钮 */
+  circle: PropTypes.bool,
+  /** 是否处于不可用状态 */  
+  disabled: PropTypes.bool,
+  /** button的展示形式是否设置为透明背景，只描边框 */
+  outline: PropTypes.bool,
+  /** click事件回调 */
   onClick: PropTypes.func,
 };
 Button.defaultProps = {
-  bgColor: 'blue',
-  fontColor: 'white',
-  /* eslint-disable no-console */
-  onClick: (event) => {
-    console.log('You have clicked me!', event.target);
-  },
-  /* eslint-enable no-console */
+  type: 'primary',
+  htmlType: 'button',
+  size: 'normal',
+  circle: false,
+  disabled: false,
+  outline: false,
+  prefixCls: 'eg-btn',
 };
-Button.sizes = {
-  small: '10px',
-  normal: '14px',
-  large: '18px',
-};
+

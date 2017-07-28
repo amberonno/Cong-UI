@@ -35,11 +35,11 @@
     "webpack": "^3.3.0"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "gfs-icons": "^1.0.0",
-    "polished": "^1.3.0",
+    "omit.js": "^1.0.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "styled-components": "^2.1.1"
+    "react-dom": "^15.6.1"
   }
 }
