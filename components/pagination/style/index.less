@@ -1,0 +1,44 @@
+@import '../../style/themes/default.less';
+@pagination-pre-cls: ~'@{selector-prefix}-pagination';
+.@{pagination-pre-cls} {
+  &-item{
+    cursor: pointer;
+    user-select: none;
+    min-width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    list-style: none;
+    display: inline-block;
+    vertical-align: middle;
+    border: @border-width-base @border-style-base @border-color-base;
+    margin-right: 8px;
+    outline: 0;
+
+    a {
+      text-decoration: none;
+      color: @text-color;
+      transition: none;
+      margin: 0 6px;
+    }
+
+    &:focus,
+    &:hover {
+      transition: all .3s;
+      border-color: @primary;
+      a {
+        color: @primary;
+      }
+    }
+    &-active{
+      background-color: @primary;
+      border-color: @primary;
+      a{
+        color: @white;
+      }
+    }
+    &-prev,&-next{
+      padding:0 15px;
+    }
+  }
+}
