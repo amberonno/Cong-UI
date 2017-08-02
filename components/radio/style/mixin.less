@@ -1,0 +1,33 @@
+.radio(@pre-cls; @width; @color; @gap){
+.@{pre-cls} {
+  &-wrapper{
+    display: inline-block;
+    position: relative;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  &{
+    input{
+      position: absolute;
+      left: 0;
+      z-index: 1;
+      cursor: pointer;
+      opacity: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+    }
+    i{
+      font-size: @width;
+    }
+    &+*{
+      padding:0 @gap;
+    }
+  }
+  &-wrapper-checked{
+    i{
+      color:@color;
+    }
+  }
+}
+}
