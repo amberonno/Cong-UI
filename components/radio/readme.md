@@ -12,7 +12,7 @@
         <input type="radio"/>
         <i className="icon gfs-icon icon-radio-checked"></i>
     </span>
-    <span>Apple</span>
+    <span>Banana</span>
 </label>
 </div>
 ```

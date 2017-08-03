@@ -1,0 +1,82 @@
+@import '../../style/themes/default.less';
+@tooltip-pre-cls: ~'@{selector-prefix}-tooltip';
+.@{tooltip-pre-cls} {
+  position: absolute;
+  z-index: @tooltip-zindex;
+  display: block;
+  visibility: visible;
+  font-size: @tooltip-font-size;
+  line-height: 1.5;
+  &-inner{
+    max-width: @tooltip-max-width;
+    padding: @tooltip-padding;
+    color: @tooltip-color;
+    text-align: left;
+    text-decoration: none;
+    background-color: @tooltip-background-color;
+    border-radius: @tooltip-border-radius;
+    box-shadow: @tooltip-box-shadow;
+  }
+  &-top-left,&-top,&-top-right{
+    padding-bottom: @tooltip-arrow-border-width + @tooltip-margin;
+  }
+  &-bottom-left,&-bottom,&-bottom-right{
+    padding-top: @tooltip-arrow-border-width + @tooltip-margin;
+  }
+  &-left-top,&-left,&-left-bottom{
+    padding-right: @tooltip-arrow-border-width + @tooltip-margin;
+  }
+  &-right-top,&-right,&-right-bottom{
+    padding-left: @tooltip-arrow-border-width + @tooltip-margin;
+  }
+  &-arrow{
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+  }
+
+  &-top-left &-arrow, &-top &-arrow, &-top-right &-arrow{
+    border-top-color: @tooltip-background-color;
+    border-width: @tooltip-arrow-border-width @tooltip-arrow-border-width 0;
+    bottom: @tooltip-margin;
+  }
+  &-bottom-left &-arrow, &-bottom &-arrow, &-bottom-right &-arrow{
+    border-bottom-color: @tooltip-background-color;
+    border-width:0 @tooltip-arrow-border-width @tooltip-arrow-border-width ;
+    top: @tooltip-margin;
+  }
+
+  &-left-top &-arrow, &-left &-arrow, &-left-bottom &-arrow{
+    border-left-color: @tooltip-background-color;
+    border-width: @tooltip-arrow-border-width 0 @tooltip-arrow-border-width @tooltip-arrow-border-width ;
+    right: @tooltip-margin;
+  }
+  &-right-top &-arrow, &-right &-arrow, &-right-bottom &-arrow{
+    border-right-color: @tooltip-background-color;
+    border-width: @tooltip-arrow-border-width @tooltip-arrow-border-width @tooltip-arrow-border-width 0;
+    left: @tooltip-margin;
+  }
+
+  &-top-left &-arrow,&-bottom-left &-arrow{
+    left: @tooltip-arrow-xoffset;
+  }
+  &-top &-arrow,&-bottom &-arrow{
+    left: 50%;
+    margin-left: -@tooltip-arrow-border-width;
+  }
+  &-top-right &-arrow,&-bottom-right &-arrow{
+    right: @tooltip-arrow-xoffset;
+  }
+  &-left-top &-arrow,&-right-top &-arrow{
+    top: @tooltip-arrow-yoffset;
+  }
+  &-left &-arrow,&-right &-arrow{
+    top: 50%;
+    margin-top: -@tooltip-arrow-border-width;
+  }
+  &-left-bottom &-arrow,&-right-bottom &-arrow{
+    bottom: @tooltip-arrow-yoffset;
+  }
+}
